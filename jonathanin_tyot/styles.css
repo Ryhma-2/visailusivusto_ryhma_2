@@ -4,13 +4,6 @@ body {
     min-height: 500px;
 }
 
-h1#questionDisplay {
-    margin-bottom: 40px;
-    font-size: 5em;
-    font-family: "Nunito", sans-serif;
-    font-weight: 800;
-}
-
 div#body-wrapper {
     justify-content: center;
     display: flex;
@@ -22,12 +15,58 @@ div#body-wrapper {
     text-transform: uppercase;
 }
 
+div#questionText {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+div#finalText {
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+
+
+p#correctQuestion {
+    margin-left: 4em;
+    margin-right: 1em;
+}
+p#progressQuestion {
+    margin-left: 4em;
+    margin-right: 1em;
+}
+
+p#totalQuestion {
+    margin-right: 4em;
+    margin-left: 1em;
+}
+
+
+
+h1#questionDisplay {
+    margin-bottom: 20px;
+    font-size: 5em;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+}
+
+
+
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     width: 40%;
 }
+
+
 
 button {
     width: 100%;
@@ -42,7 +81,7 @@ button {
     color: #fff;
 }
 
-button:hover {
+button:not(:disabled):hover {
     opacity: 0.8;
     transition: all 0.3s;
 }
