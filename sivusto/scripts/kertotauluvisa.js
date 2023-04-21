@@ -9,18 +9,19 @@ const optionD = document.getElementById('ans_D');
 var questionText = document.getElementById('questionText');
 var finalText = document.getElementById('finalText');
 var totalScore = document.getElementById('totalScore');
+var ifLessThanTwo = document.getElementById('ifLessThanTwo');
 
 var progressQuestion = document.getElementById('progressQuestion');
 var progressQuestionCounter = 1;
-// starts at 1
+// counter starts at 1 (renders on first generateQuestion load)
 var correctQuestion = document.getElementById('correctQuestion');
 var correctAnswerCounter = 0;
 
-var randVar1 = Math.floor(Math.random() * 8) + 2;
-var randVar2 = Math.floor(Math.random() * 8) + 2;
-var randVar3 = Math.floor(Math.random() * 8) + 2;
-var randVar4 = Math.floor(Math.random() * 8) + 2;
-var randVar5 = Math.floor(Math.random() * 8) + 1;
+var randVar1 = Math.floor(Math.random() * 7) + 2;
+var randVar2 = Math.floor(Math.random() * 7) + 2;
+var randVar3 = Math.floor(Math.random() * 7) + 2;
+var randVar4 = Math.floor(Math.random() * 7) + 2;
+var randVar5 = Math.floor(Math.random() * 7) + 1;
 // most of the random values are +2 to avoid multiple 1's per game
 
 var quizData = [
@@ -106,8 +107,12 @@ function generateQuestion() {
     location.reload()
 
  } else if (randomQuestion === undefined) {
-
+ 
     alert ("Onneksi olkoon, vastasit kaikkiin kysymyksiin!");
+    if (correctAnswerCounter === 1) {
+      ifLessThanTwo.textContent = 'vastauksen'
+    }
+    
     questionText.style.display = 'none'
     finalText.style.display = 'revert'
 
@@ -115,6 +120,10 @@ function generateQuestion() {
     questionDisplay.textContent = 'Hienoa!';
     navButton.textContent = 'ALKUUN';
     navButton.style.display = 'flex'
+    optionA.style.visibility ='hidden'
+    optionB.style.visibility ='hidden'
+    optionC.style.visibility ='hidden'
+    optionD.style.visibility ='hidden'
 
  } else {
 
