@@ -19,8 +19,8 @@ var correctAnswerCounter = 0;
 var randVar1 = Math.floor(Math.random() * 8) + 2;
 var randVar2 = Math.floor(Math.random() * 8) + 2;
 var randVar3 = Math.floor(Math.random() * 8) + 2;
-var randVar4 = Math.floor(Math.random() * 9) + 1;
-var randVar5 = Math.floor(Math.random() * 9) + 1;
+var randVar4 = Math.floor(Math.random() * 8) + 2;
+var randVar5 = Math.floor(Math.random() * 8) + 1;
 // most of the random values are +2 to avoid multiple 1's per game
 
 var quizData = [
@@ -77,9 +77,10 @@ function generateQuestion() {
  randomIndex = Math.floor(Math.random() * quizData.length);
  randomQuestion = quizData[randomIndex];
 
- if (navButton.innerHTML === 'Aloita'){
+ if (navButton.innerHTML === "ALOITA"){
 
   navButton.style.display = 'none'
+  navButton.textContent = 'JATKA';
   questionText.style.display ='flex'
   optionA.style.display ='revert'
   optionB.style.display ='revert'
@@ -100,7 +101,7 @@ function generateQuestion() {
 
   quizData.splice(randomIndex, 1);
 
- } else if (randomQuestion === undefined && navButton.innerHTML === 'Alkuun'){
+ } else if (randomQuestion === undefined && navButton.innerHTML === 'ALKUUN'){
 
     location.reload()
 
@@ -110,9 +111,10 @@ function generateQuestion() {
     questionText.style.display = 'none'
     finalText.style.display = 'revert'
 
-    totalScore.textContent = correctAnswerCounter
-    questionDisplay.textContent = 'Hienoa!'
-    navButton.textContent = 'Alkuun'
+    totalScore.textContent = correctAnswerCounter;
+    questionDisplay.textContent = 'Hienoa!';
+    navButton.textContent = 'ALKUUN';
+    navButton.style.display = 'flex'
 
  } else {
 
@@ -189,8 +191,8 @@ function checkQuestions() {
   checkQuestionAnswerB();
   checkQuestionAnswerC();
   checkQuestionAnswerD();
-  navButton.textContent = 'Jatka';
-  navButton.style.display = 'revert';
+  navButton.textContent = 'JATKA';
+  navButton.style.display = 'flex';
 
   progressQuestionCounter++;
 }
