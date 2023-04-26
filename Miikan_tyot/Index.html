@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Matematiikkavisa MV/css/mathstyles.css">
+    <link rel="stylesheet" href="../Miikan_tyot/css/mathstyles.css">
     <title>Matematiikkavisa</title>
 </head>
 
@@ -16,69 +16,109 @@
             <h2>Kysymys 1/5</h2>
             <p>Kengät maksavat Seppälässä <span id="priceOriginal"></span>€. Niiden hintaa alennetaan tammialeissa <span id="discount"></span>%. Paljonko on lopullinen hinta alennuksen jälkeen?</p>
             <ul>
-                <li><input type="radio" name="q1" value="0"><span id="choice1of1"></span></li>
-                <li><input type="radio" name="q1" value="1"><span id="choice2of1"></span></li>
-                <li><input type="radio" name="q1" value="2"><span id="choice3of1"></span></li>
-                <li><input type="radio" name="q1" value="3"><span id="choice4of1"></span></li>
-                <li><input type="radio" name="q1" value="4"><span id="choice5of1"></span></li>
+                <li>
+                    <label><input type="radio" name="q1" value="0"><span id="choice1of1"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q1" value="1"><span id="choice2of1"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q1" value="2"><span id="choice3of1"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q1" value="3"><span id="choice4of1"></span></label>
+                </li>
             </ul>
-            <button id="next1">Seuraava</button>
+            <button id="next1" class="hidden">Seuraava</button>
         </div>
+
         <div class="question">
             <h2>Kysymys 2/5</h2>
             <p>Kitarataiteilija Gerhard Rihmakallo levytti uransa aikana arvostelijoiden mukaan <span id="hits"></span> loistavaa kappaletta. Yhteensä Gerhard levytti <span id="songs"></span> kappaletta. Arvostelijoiden mukaan näistä <span id="neutral"></span> oli ihan OK. Kuinka monen kappaleen voidaan katsoa olleen täyttä kuraa?</p>
             <ul>
-                <li><input type="radio" name="q2" value="0"><span id="choice1of2"></span></li>
-                <li><input type="radio" name="q2" value="1"><span id="choice2of2"></span></li>
-                <li><input type="radio" name="q2" value="2"><span id="choice3of2"></span></li>
-                <li><input type="radio" name="q2" value="3"><span id="choice4of2"></span></li>
-                <li><input type="radio" name="q2" value="4"><span id="choice5of2"></span></li>
+                <li><label>
+                    <input type="radio" name="q2" value="0"><span id="choice1of2"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q2" value="1"><span id="choice2of2"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q2" value="2"><span id="choice3of2"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q2" value="3"><span id="choice4of2"></span></label>
+                </li>
             </ul>
-            <button id="next2">Seuraava</button>
+            <button id="next2" class="hidden">Seuraava</button>
         </div>
+
         <div class="question">
             <h2>Kysymys 3/5</h2>
             <p>Jos suunnikkaan korkeus on <span id="length"></span>m ja leveys <span id="width"></span>m, paljonko on suunnikkaan piiri?</p>
             <ul>
-                <li><input type="radio" name="q3" value="0"><span id="choice1of3"></span></li>
-                <li><input type="radio" name="q3" value="1"><span id="choice2of3"></span></li>
-                <li><input type="radio" name="q3" value="2"><span id="choice3of3"></span></li>
-                <li><input type="radio" name="q3" value="3"><span id="choice4of3"></span></li>
-                <li><input type="radio" name="q3" value="4"><span id="choice5of3"></span></li>
+                <li>
+                    <label><input type="radio" name="q3" value="0"><span id="choice1of3"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q3" value="1"><span id="choice2of3"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q3" value="2"><span id="choice3of3"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q3" value="3"><span id="choice4of3"></span></label>
+                </li>
             </ul>
-            <button id="next3">Seuraava</button>
+            <button id="next3" class="hidden">Seuraava</button>
         </div>
+
         <div class="question">
             <h2>Kysymys 4/5</h2>
             <p>Jos kirja on <span id="booklength"></span> sivua pitkä ja Jörn Donner lukee sitä <span id="pace"></span> sivua päivässä, niin montako päivää Jörnillä menee että on saanut kirjan luettua?</p>
             <ul>
-                <li><input type="radio" name="q4" value="0"><span id="choice1of4"></span></li>
-                <li><input type="radio" name="q4" value="1"><span id="choice2of4"></span></li>
-                <li><input type="radio" name="q4" value="2"><span id="choice3of4"></span></li>
-                <li><input type="radio" name="q4" value="3"><span id="choice4of4"></span></li>
-                <li><input type="radio" name="q4" value="4"><span id="choice5of4"></span></li>
+                <li>
+                    <label><input type="radio" name="q4" value="0"><span id="choice1of4"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q4" value="1"><span id="choice2of4"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q4" value="2"><span id="choice3of4"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q4" value="3"><span id="choice4of4"></span></label>
+                </li>
             </ul>
-            <button id="next4">Seuraava</button>
+            <button id="next4" class="hidden">Seuraava</button>
         </div>
+
         <div class="question">
             <h2>Kysymys 5/5</h2>
             <p>Pussissa on <span id="red"></span> punaista kuulaa, <span id="blue"></span> sinistä kuulaa ja <span id="green"></span> vihreää kuulaa . Jos pussista nostetaan yksi kuula, millä todennäköisyydellä kuula on vihreä?</p>
             <ul>
-                <li><input type="radio" name="q5" value="0"><span id="choice1of5"></span></li>
-                <li><input type="radio" name="q5" value="1"><span id="choice2of5"></span></li>
-                <li><input type="radio" name="q5" value="2"><span id="choice3of5"></span></li>
-                <li><input type="radio" name="q5" value="3"><span id="choice4of5"></span></li>
-                <li><input type="radio" name="q5" value="4"><span id="choice5of5"></span></li>
+                <li>
+                    <label><input type="radio" name="q5" value="0"><span id="choice1of5"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q5" value="1"><span id="choice2of5"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q5" value="2"><span id="choice3of5"></span></label>
+                </li>
+                <li>
+                    <label><input type="radio" name="q5" value="3"><span id="choice4of5"></span></label>
+                </li>
             </ul>
-            <button id="next5">Lopeta visa</button>
+            <button id="next5" class="hidden">Lopeta visa</button>
         </div>
+
         <div class="question">
             <h2>Tulokset</h2>
             <p>Sait oikein <span id="total"></span>/5</p>
             <button class="finish"><a href="Index.html">Kokeile uudestaan!</button>
         </div>
         
-	<script src="../Matematiikkavisa MV/js/matematiikkavisa.js"></script>
+	<script src="../Miikan_tyot/js/matematiikkavisa.js"></script>
 
 </body>
 

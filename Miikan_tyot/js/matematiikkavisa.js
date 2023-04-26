@@ -22,6 +22,7 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+
 // Määritellään kaikissa kysymyksissä käytettävät muuttujat alkuun
 
 // KYSYMYS 1  
@@ -32,6 +33,7 @@ let discountIndex   = getRandomNumber(0, discounts.length -1);
 let price       = prices[priceIndex]
 let discount    = discounts[discountIndex]
 let finalPrice  = price - (price * (discount / 100));
+
 // Asetetaan satunnaisesti valittu hinta ja alennus% näkymään sivulla
 let priceOriginal = document.getElementById('priceOriginal');
 priceOriginal.textContent = price;
@@ -43,6 +45,7 @@ let hitSongs        = getRandomNumber(20, 40);
 let neutralSongs    = getRandomNumber(50, 70)
 let totalSongs      = getRandomNumber(300, 400);
 let badSongs        = totalSongs - neutralSongs - hitSongs;
+
 // Asetetaan satunnaisesti valitut kappalemäärät näkymään sivulla
 document.getElementById("hits").innerHTML = hitSongs;
 document.getElementById("songs").innerHTML = totalSongs;
@@ -52,6 +55,7 @@ document.getElementById("neutral").innerHTML = neutralSongs;
 let height      = getRandomNumber (5, 10);
 let width       = getRandomNumber (2, 6);
 let perimeter   = 2 * (height + width);
+
 // Asetetaan alkutiedot näkymään sivulla
 document.getElementById("length").innerHTML = height;
 document.getElementById("width").innerHTML = width;
@@ -60,6 +64,7 @@ document.getElementById("width").innerHTML = width;
 let pace        = getRandomNumber (3,8);
 let bookLength  = pace * getRandomNumber (30, 65);
 let days        = bookLength / pace;
+
 // Asetetaan alkutiedot näkymään sivulla
 document.getElementById("booklength").innerHTML = bookLength;
 document.getElementById("pace").innerHTML = pace;
@@ -69,6 +74,7 @@ let blues       = getRandomNumber(1, 47);
 let greens      = getRandomNumber(1, 50 - blues);
 let reds        = 50 - blues - greens;
 let greenOdds   = greens * 2; // Tämä kaava käy vain silloin kun objekteja yhteensä 50
+
 // Asetetaan alkutiedot näkymään sivulla
 document.getElementById("red").innerHTML = reds;
 document.getElementById("blue").innerHTML = blues;
@@ -80,38 +86,49 @@ let choice1 = document.getElementById('choice1of1');
 let choice2 = document.getElementById('choice2of1');
 let choice3 = document.getElementById('choice3of1');
 let choice4 = document.getElementById('choice4of1');
-let choice5 = document.getElementById('choice5of1');
-let choices = [choice1, choice2, choice3, choice4, choice5];
+let choices1 = [choice1, choice2, choice3, choice4];
 
 // Määritellään oikea vastaus satunnaiseen kohtaan
-let correctAnswerIndex = Math.floor(Math.random() * choices.length);
-choices[correctAnswerIndex].textContent = `${finalPrice} €`;
+let correctAnswerIndex1 = Math.floor(Math.random() * choices1.length);
+choices1[correctAnswerIndex1].textContent = `${finalPrice} €`;
 
-// Määritellään väärät vastaukset ja se, etteivät ne toistu koodissa
-let usedOptions = [finalPrice];
-for (let i = 0; i < choices.length; i++) {
-  if (i !== correctAnswerIndex) {
+// Määritellään väärät vastaukset ja se, etteivät ne toistu vaihtoehdoissa
+let usedOptions1 = [finalPrice];
+for (let i = 0; i < choices1.length; i++) {
+  if (i !== correctAnswerIndex1) {
     let incorrectOption;
     do {
       incorrectOption = finalPrice - getRandomNumber(5, finalPrice -5 );
-    } while (usedOptions.includes(incorrectOption));
-    choices[i].textContent = `${incorrectOption} €`;
-    usedOptions.push(incorrectOption);
+    } while (usedOptions1.includes(incorrectOption));
+    choices1[i].textContent = `${incorrectOption} €`;
+    usedOptions1.push(incorrectOption);
   }
 }
 
-// Tarkistetaan onko käyttäjä vastannut oikein ja jos on, talletaan se muuttujaan totalScore
-document.getElementById("next1").addEventListener("click", checkAnswer1);
-function checkAnswer1() {
-  let answer = document.querySelector('input[name="q1"]:checked');
-  console.log("answer value: ", answer.value);
-  console.log("correctAnswerIndex value: ", correctAnswerIndex);
-  if (answer.value == correctAnswerIndex) {
-  totalScore++;
-} else {
-  totalScore += 0;
+// Asetetaan event-listener "kuuntelemaan" mitä vaihtoehtoa käyttäjä painaa
+let radioButtons1 = document.querySelectorAll('input[name="q1"]');
+for (let i = 0; i < radioButtons1.length; i++) {
+  radioButtons1[i].addEventListener('click', function() {
+    checkAnswer1();
+  });
 }
+
+// Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
+function checkAnswer1() {
+  let answer1 = document.querySelector('input[name="q1"]:checked');
+
+  if (answer1.value == correctAnswerIndex1) {
+    totalScore++;
+  } else {
+    totalScore += 0;
+  }
   document.getElementById("total").innerHTML = totalScore;
+  document.getElementById("next1").classList.remove("hidden");
+
+  // varmistetaan että käyttäjä ei voi vaihtaa vastausta
+  for (let i = 0; i < radioButtons1.length; i++) {
+    radioButtons1[i].disabled = true;
+  }
 }
 
 
@@ -120,14 +137,13 @@ let choice6     = document.getElementById('choice1of2');
 let choice7     = document.getElementById('choice2of2');
 let choice8     = document.getElementById('choice3of2');
 let choice9     = document.getElementById('choice4of2');
-let choice10    = document.getElementById('choice5of2');
-let choices2   = [choice6, choice7, choice8, choice9, choice10];
+let choices2   = [choice6, choice7, choice8, choice9];
 
 // Määritellään oikea vastaus satunnaiseen kohtaan
 let correctAnswerIndex2 = Math.floor(Math.random() * choices2.length);
 choices2[correctAnswerIndex2].textContent = `${badSongs} kpl`;
 
-// Määritellään väärät vastaukset ja se, etteivät ne toistu koodissa
+// Määritellään väärät vastaukset ja se, etteivät ne toistu vaihtoehdoissa
 let usedOptions2 = [badSongs];
 for (let i = 0; i < choices2.length; i++) {
   if (i !== correctAnswerIndex2) {
@@ -140,33 +156,45 @@ for (let i = 0; i < choices2.length; i++) {
   }
 }
 
-// Tarkistetaan onko käyttäjä vastannut oikein ja jos on, talletaan se muuttujaan totalScore
-document.getElementById("next2").addEventListener("click", checkAnswer2);
+// Asetetaan event-listener "kuuntelemaan" mitä vaihtoehtoa käyttäjä painaa
+let radioButtons2 = document.querySelectorAll('input[name="q2"]');
+for (let i = 0; i < radioButtons2.length; i++) {
+  radioButtons2[i].addEventListener('click', function() {
+    checkAnswer2();
+  });
+}
+
+// Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer2() {
-  let answer = document.querySelector('input[name="q2"]:checked');
-  console.log("answer value: ", answer.value);
-  console.log("correctAnswerIndex value: ", correctAnswerIndex2);
-  if (answer.value == correctAnswerIndex2) {
-  totalScore++;
-} else {
-  totalScore += 0;
-}
+  let answer2 = document.querySelector('input[name="q2"]:checked');
+
+  if (answer2.value == correctAnswerIndex2) {
+    totalScore++;
+  } else {
+    totalScore += 0;
+  }
   document.getElementById("total").innerHTML = totalScore;
+  document.getElementById("next2").classList.remove("hidden");
+
+  // varmistetaan että käyttäjä ei voi vaihtaa vastausta
+  for (let i = 0; i < radioButtons2.length; i++) {
+    radioButtons2[i].disabled = true;
+  }
 }
+
 
 // KYSYMYS 3 vaihtoehdot ja muu laskenta
 let choice11    = document.getElementById('choice1of3');
 let choice12    = document.getElementById('choice2of3');
 let choice13    = document.getElementById('choice3of3');
 let choice14    = document.getElementById('choice4of3');
-let choice15    = document.getElementById('choice5of3');
-let choices3    = [choice11, choice12, choice13, choice14, choice15];
+let choices3    = [choice11, choice12, choice13, choice14];
 
 // Määritellään oikea vastaus satunnaiseen kohtaan
 let correctAnswerIndex3 = Math.floor(Math.random() * choices3.length);
 choices3[correctAnswerIndex3].textContent = `${perimeter} m`;
 
-// Määritellään väärät vastaukset ja se, etteivät ne toistu koodissa
+// Määritellään väärät vastaukset ja se, etteivät ne toistu vaihtoehdoissa
 let usedOptions3 = [perimeter];
 for (let i = 0; i < choices3.length; i++) {
   if (i !== correctAnswerIndex3) {
@@ -179,33 +207,45 @@ for (let i = 0; i < choices3.length; i++) {
   }
 }
 
-// Tarkistetaan onko käyttäjä vastannut oikein ja jos on, talletaan se muuttujaan totalScore
-document.getElementById("next3").addEventListener("click", checkAnswer3);
+// Asetetaan event-listener "kuuntelemaan" mitä vaihtoehtoa käyttäjä painaa
+let radioButtons3 = document.querySelectorAll('input[name="q3"]');
+for (let i = 0; i < radioButtons3.length; i++) {
+  radioButtons3[i].addEventListener('click', function() {
+    checkAnswer3();
+  });
+}
+
+// Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer3() {
-  let answer = document.querySelector('input[name="q3"]:checked');
-  console.log("answer value: ", answer.value);
-  console.log("correctAnswerIndex value: ", correctAnswerIndex3);
-  if (answer.value == correctAnswerIndex3) {
-  totalScore++;
-} else {
-  totalScore += 0;
-}
+  let answer3 = document.querySelector('input[name="q3"]:checked');
+
+  if (answer3.value == correctAnswerIndex3) {
+    totalScore++;
+  } else {
+    totalScore += 0;
+  }
   document.getElementById("total").innerHTML = totalScore;
+  document.getElementById("next3").classList.remove("hidden");
+
+  // varmistetaan että käyttäjä ei voi vaihtaa vastausta
+  for (let i = 0; i < radioButtons3.length; i++) {
+    radioButtons3[i].disabled = true;
+  }
 }
+
 
 //KYSYMYS 4 vaihtoehdot ja muu laskenta
 let choice16    = document.getElementById('choice1of4');
 let choice17    = document.getElementById('choice2of4');
 let choice18    = document.getElementById('choice3of4');
 let choice19    = document.getElementById('choice4of4');
-let choice20    = document.getElementById('choice5of4');
-let choices4    = [choice16, choice17, choice18, choice19, choice20];
+let choices4    = [choice16, choice17, choice18, choice19];
 
 // Määritellään oikea vastaus satunnaiseen kohtaan
 let correctAnswerIndex4 = Math.floor(Math.random() * choices4.length);
 choices4[correctAnswerIndex4].textContent = `${days} päivää`;
 
-// Määritellään väärät vastaukset ja se, etteivät ne toistu koodissa
+// Määritellään väärät vastaukset ja se, etteivät ne toistu vaihtoehdoissa
 let usedOptions4 = [days];
 for (let i = 0; i < choices4.length; i++) {
   if (i !== correctAnswerIndex4) {
@@ -218,18 +258,30 @@ for (let i = 0; i < choices4.length; i++) {
   }
 }
 
-// Tarkistetaan onko käyttäjä vastannut oikein ja jos on, talletaan se muuttujaan totalScore
-document.getElementById("next4").addEventListener("click", checkAnswer4);
-function checkAnswer4() {
-  let answer = document.querySelector('input[name="q4"]:checked');
-  console.log("answer value: ", answer.value);
-  console.log("correctAnswerIndex value: ", correctAnswerIndex4);
-  if (answer.value == correctAnswerIndex4) {
-  totalScore++;
-} else {
-  totalScore += 0;
+// Asetetaan event-listener "kuuntelemaan" mitä vaihtoehtoa käyttäjä painaa
+let radioButtons4 = document.querySelectorAll('input[name="q4"]');
+for (let i = 0; i < radioButtons4.length; i++) {
+  radioButtons4[i].addEventListener('click', function() {
+    checkAnswer4();
+  });
 }
+
+// Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
+function checkAnswer4() {
+  let answer4 = document.querySelector('input[name="q4"]:checked');
+
+  if (answer4.value == correctAnswerIndex4) {
+    totalScore++;
+  } else {
+    totalScore += 0;
+  }
   document.getElementById("total").innerHTML = totalScore;
+  document.getElementById("next4").classList.remove("hidden");
+
+  // varmistetaan että käyttäjä ei voi vaihtaa vastausta
+  for (let i = 0; i < radioButtons4.length; i++) {
+    radioButtons4[i].disabled = true;
+  }
 }
 
 
@@ -238,14 +290,13 @@ let choice21    = document.getElementById('choice1of5');
 let choice22    = document.getElementById('choice2of5');
 let choice23    = document.getElementById('choice3of5');
 let choice24    = document.getElementById('choice4of5');
-let choice25    = document.getElementById('choice5of5');
-let choices5    = [choice21, choice22, choice23, choice24, choice25];
+let choices5    = [choice21, choice22, choice23, choice24];
 
 // Määritellään oikea vastaus satunnaiseen kohtaan
 let correctAnswerIndex5 = Math.floor(Math.random() * choices5.length);
 choices5[correctAnswerIndex5].textContent = `${greenOdds} %`;
 
-// Määritellään väärät vastaukset ja se, etteivät ne toistu koodissa
+// Määritellään väärät vastaukset ja se, etteivät ne toistu vaihtoehdoissa
 let usedOptions5 = [greenOdds];
 for (let i = 0; i < choices5.length; i++) {
   if (i !== correctAnswerIndex5) {
@@ -258,18 +309,31 @@ for (let i = 0; i < choices5.length; i++) {
   }
 }
 
-// Tarkistetaan onko käyttäjä vastannut oikein ja jos on, talletaan se muuttujaan totalScore
-document.getElementById("next5").addEventListener("click", checkAnswer5);
-function checkAnswer5() {
-  let answer = document.querySelector('input[name="q5"]:checked');
-  console.log("answer value: ", answer.value);
-  console.log("correctAnswerIndex value: ", correctAnswerIndex5);
-  if (answer.value == correctAnswerIndex5) {
-  totalScore++;
-} else {
-  totalScore += 0;
-}
-  document.getElementById("total").innerHTML = totalScore;
+// Asetetaan event-listener "kuuntelemaan" mitä vaihtoehtoa käyttäjä painaa
+let radioButtons5 = document.querySelectorAll('input[name="q5"]');
+for (let i = 0; i < radioButtons5.length; i++) {
+  radioButtons5[i].addEventListener('click', function() {
+    checkAnswer5();
+  });
 }
 
+// Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
+function checkAnswer5() {
+  let answer5 = document.querySelector('input[name="q4"]:checked');
+
+  if (answer5.value == correctAnswerIndex5) {
+    totalScore++;
+  } else {
+    totalScore += 0;
+  }
+  document.getElementById("total").innerHTML = totalScore;
+  document.getElementById("next5").classList.remove("hidden");
+
+  // varmistetaan että käyttäjä ei voi vaihtaa vastausta
+  for (let i = 0; i < radioButtons5.length; i++) {
+    radioButtons5[i].disabled = true;
+  }
+}
+
+// Tulostetaan oikeiden vastausten määrä näkyviin
 document.getElementById("total").innerHTML = totalScore;
