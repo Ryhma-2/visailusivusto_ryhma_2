@@ -10,10 +10,13 @@
 
 <body>
 
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+    </div>
+    
     <div id="quiz">
 
         <div class="active question">
-            <h2>Kysymys 1/5</h2>
             <p>Kengät maksavat Seppälässä <span id="priceOriginal"></span>€. Niiden hintaa alennetaan tammialeissa <span id="discount"></span>%. Paljonko on lopullinen hinta alennuksen jälkeen?</p>
             <ul>
                 <li>
@@ -33,8 +36,10 @@
         </div>
 
         <div class="question">
-            <h2>Kysymys 2/5</h2>
-            <p>Kitarataiteilija Gerhard Rihmakallo levytti uransa aikana arvostelijoiden mukaan <span id="hits"></span> loistavaa kappaletta. Yhteensä Gerhard levytti <span id="songs"></span> kappaletta. Arvostelijoiden mukaan näistä <span id="neutral"></span> oli ihan OK. Kuinka monen kappaleen voidaan katsoa olleen täyttä kuraa?</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <p>Kitarataiteilija Gerhard Rihmakallo levytti uransa aikana <span id="hits"></span> loistavaa kappaletta. Yhteensä Gerhard levytti <span id="songs"></span> kappaletta. Arvostelijoiden mukaan näistä <span id="neutral"></span> oli ihan OK. Kuinka monen kappaleen voidaan katsoa olleen täyttä kuraa?</p>
             <ul>
                 <li><label>
                     <input type="radio" name="q2" value="0"><span id="choice1of2"></span></label>
@@ -53,7 +58,9 @@
         </div>
 
         <div class="question">
-            <h2>Kysymys 3/5</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
             <p>Jos suunnikkaan korkeus on <span id="length"></span>m ja leveys <span id="width"></span>m, paljonko on suunnikkaan piiri?</p>
             <ul>
                 <li>
@@ -73,7 +80,9 @@
         </div>
 
         <div class="question">
-            <h2>Kysymys 4/5</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
             <p>Jos kirja on <span id="booklength"></span> sivua pitkä ja Jörn Donner lukee sitä <span id="pace"></span> sivua päivässä, niin montako päivää Jörnillä menee että on saanut kirjan luettua?</p>
             <ul>
                 <li>
@@ -93,7 +102,9 @@
         </div>
 
         <div class="question">
-            <h2>Kysymys 5/5</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
             <p>Pussissa on <span id="red"></span> punaista kuulaa, <span id="blue"></span> sinistä kuulaa ja <span id="green"></span> vihreää kuulaa . Jos pussista nostetaan yksi kuula, millä todennäköisyydellä kuula on vihreä?</p>
             <ul>
                 <li>
@@ -115,7 +126,11 @@
         <div class="question">
             <h2>Tulokset</h2>
             <p>Sait oikein <span id="total"></span>/5</p>
+            <p id="resultImg">&nbsp;</p> <br>
+            <p id="resultMessage"></p> <br>
+            <br>
             <button class="finish"><a href="Index.html">Kokeile uudestaan!</button>
+            <button class="finish"><a heref="...">Etusivulle</a></button>        
         </div>
         
 	<script src="../Miikan_tyot/js/matematiikkavisa.js"></script>

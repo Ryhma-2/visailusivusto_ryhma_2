@@ -27,7 +27,7 @@ function getRandomNumber(min, max) {
 
 // KYSYMYS 1  
 prices      = [20, 30, 40, 50, 60, 70, 80];
-discounts   = [20, 25, 30, 40];
+discounts   = [20, 25, 40, 75];
 let priceIndex      = getRandomNumber(0, prices.length -1);
 let discountIndex   = getRandomNumber(0, discounts.length -1);
 let price       = prices[priceIndex]
@@ -109,21 +109,34 @@ for (let i = 0; i < choices1.length; i++) {
 let radioButtons1 = document.querySelectorAll('input[name="q1"]');
 for (let i = 0; i < radioButtons1.length; i++) {
   radioButtons1[i].addEventListener('click', function() {
+    document.getElementById("next1").classList.remove("hidden");
     checkAnswer1();
   });
 }
 
+let currentQuestionNumber = 1; 
 // Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer1() {
+
+  // Luodaan edistymispalkin funktio
+ 
+  let currentQuestionNumber = 1;
+  let totalNumberOfQuestions = 5; 
+  let progressBarWidth = (currentQuestionNumber / totalNumberOfQuestions) * 100;
+  document.querySelector('.progress-bar').style.width = `${progressBarWidth}%`;
+
   let answer1 = document.querySelector('input[name="q1"]:checked');
 
   if (answer1.value == correctAnswerIndex1) {
     totalScore++;
+    choices1[correctAnswerIndex1].parentNode.classList.add('correct');
   } else {
     totalScore += 0;
+    answer1.parentNode.classList.add('incorrect');
+    choices1[correctAnswerIndex1].parentNode.classList.add('correct');
   }
   document.getElementById("total").innerHTML = totalScore;
-  document.getElementById("next1").classList.remove("hidden");
+  //document.getElementById("next1").classList.remove("hidden");
 
   // varmistetaan että käyttäjä ei voi vaihtaa vastausta
   for (let i = 0; i < radioButtons1.length; i++) {
@@ -166,12 +179,22 @@ for (let i = 0; i < radioButtons2.length; i++) {
 
 // Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer2() {
+
+  // Luodaan edistymispalkin funktio
+  let currentQuestionNumber = 2; 
+  let totalNumberOfQuestions = 5; 
+  let progressBarWidth = (currentQuestionNumber / totalNumberOfQuestions) * 100;
+  document.querySelector('.progress-bar').style.width = `${progressBarWidth}%`;
+
   let answer2 = document.querySelector('input[name="q2"]:checked');
 
   if (answer2.value == correctAnswerIndex2) {
     totalScore++;
+    answer2.parentNode.classList.add('correct');
   } else {
     totalScore += 0;
+    answer2.parentNode.classList.add('incorrect');
+    choices2[correctAnswerIndex2].parentNode.classList.add('correct');
   }
   document.getElementById("total").innerHTML = totalScore;
   document.getElementById("next2").classList.remove("hidden");
@@ -217,12 +240,22 @@ for (let i = 0; i < radioButtons3.length; i++) {
 
 // Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer3() {
+
+  // Luodaan edistymispalkin funktio
+  let currentQuestionNumber = 3; 
+  let totalNumberOfQuestions = 5; 
+  let progressBarWidth = (currentQuestionNumber / totalNumberOfQuestions) * 100;
+  document.querySelector('.progress-bar').style.width = `${progressBarWidth}%`;
+
   let answer3 = document.querySelector('input[name="q3"]:checked');
 
   if (answer3.value == correctAnswerIndex3) {
     totalScore++;
+    choices3[correctAnswerIndex3].parentNode.classList.add('correct');
   } else {
     totalScore += 0;
+    answer3.parentNode.classList.add('incorrect');
+    choices3[correctAnswerIndex3].parentNode.classList.add('correct');
   }
   document.getElementById("total").innerHTML = totalScore;
   document.getElementById("next3").classList.remove("hidden");
@@ -268,12 +301,22 @@ for (let i = 0; i < radioButtons4.length; i++) {
 
 // Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer4() {
+
+  // Luodaan edistymispalkin funktio
+  let currentQuestionNumber = 4; 
+  let totalNumberOfQuestions = 5; 
+  let progressBarWidth = (currentQuestionNumber / totalNumberOfQuestions) * 100;
+  document.querySelector('.progress-bar').style.width = `${progressBarWidth}%`;
+
   let answer4 = document.querySelector('input[name="q4"]:checked');
 
   if (answer4.value == correctAnswerIndex4) {
     totalScore++;
+    choices4[correctAnswerIndex4].parentNode.classList.add('correct');
   } else {
     totalScore += 0;
+    answer4.parentNode.classList.add('incorrect');
+    choices4[correctAnswerIndex4].parentNode.classList.add('correct');
   }
   document.getElementById("total").innerHTML = totalScore;
   document.getElementById("next4").classList.remove("hidden");
@@ -319,12 +362,22 @@ for (let i = 0; i < radioButtons5.length; i++) {
 
 // Tarkistetaan oliko vastaus oikein ja jos oli, lisätään 1 piste muuttujaan "totalScore"
 function checkAnswer5() {
-  let answer5 = document.querySelector('input[name="q4"]:checked');
+
+  // Luodaan edistymispalkin funktio
+  let currentQuestionNumber = 5; 
+  let totalNumberOfQuestions = 5; 
+  let progressBarWidth = (currentQuestionNumber / totalNumberOfQuestions) * 100;
+  document.querySelector('.progress-bar').style.width = `${progressBarWidth}%`;
+
+  let answer5 = document.querySelector('input[name="q5"]:checked');
 
   if (answer5.value == correctAnswerIndex5) {
     totalScore++;
+    choices5[correctAnswerIndex5].parentNode.classList.add('correct');
   } else {
     totalScore += 0;
+    answer5.parentNode.classList.add('incorrect');
+    choices5[correctAnswerIndex5].parentNode.classList.add('correct');
   }
   document.getElementById("total").innerHTML = totalScore;
   document.getElementById("next5").classList.remove("hidden");
@@ -337,3 +390,14 @@ function checkAnswer5() {
 
 // Tulostetaan oikeiden vastausten määrä näkyviin
 document.getElementById("total").innerHTML = totalScore;
+
+if (totalScore >= 4) {
+  document.getElementById("resultImg").innerHTML = "kuva tahan";
+  document.getElementById("resultMessage").innerHTML = "Loistavaa!";
+} else if (totalScore < 4 && totalScore >= 2) {
+  document.getElementById("resultImg").innerHTML = "kuva tahan";
+  document.getElementById("resultMessage").innerHTML = "Hienoa, kokeile vielä saatko parannettua tulosta!";
+} else if (totalScore < 2) {
+  document.getElementById("resultImg").innerHTML = "kuva tahan";
+  document.getElementById("resultMessage").innerHTML = "Kokeilehan uudestaan!";
+}
