@@ -53,18 +53,19 @@ button.start:not(.hidden) {
   border-radius: 5px;
 }
 
-ul {
+[class^="options"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   grid-template-rows: repeat(2, auto);
   gap: 10px; 
   width: 60%;
-  height: 320px;
+  /*height: 320px;*/
+  height: 30%;
   margin: 0 auto;
   grid-auto-rows: minmax(0, max-content);
 }
 
-li {
+.options li {
   display: flex; 
   justify-content: center; 
   align-items: center; 
@@ -73,7 +74,7 @@ li {
   background-color: #eae360;
 }
 
-li:hover {
+.options li:hover {
   background-color: #e6fb19;
   cursor: pointer;
 }
@@ -137,6 +138,7 @@ h2 {
   background-color: #ddd;
   border-radius: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .progress-bar {
@@ -200,6 +202,17 @@ h2 {
   font-size: 1.5em;
 }
 
+#footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(39, 38, 38);
+  color: white;
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
   
   h1 {
@@ -208,14 +221,14 @@ h2 {
 
   p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 0.7em;
   }
 
   ul {
     display: block;
     gap: 10px; 
     width: 70%;
-    height: 100px;
+    height: 30%;
     grid-auto-rows: minmax(0, max-content);
     margin: 0px;
   }

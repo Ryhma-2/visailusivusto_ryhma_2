@@ -1,15 +1,50 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../Miikan_tyot/css/mathstyles.css">
-    <title>Matematiikkavisa</title>
 </head>
-
 <body>
 
+
+  <header>
+    <nav class="navbar bg-dark" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Tervetuloa</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tietoja</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tietovisat
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Matematiikka-visa</a></li>
+                  <li><a class="dropdown-item" href="#">Musiikki-visa</a></li>
+                  <li><a class="dropdown-item" href="#">Historia-visa</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
+
+  <main class="container">
+    
     <div class="progress-bar-container">
         <div class="progress-bar"></div>
     </div>
@@ -24,7 +59,7 @@
 
         <div class="question">
             <p>Kengät maksavat Seppälässä <span id="priceOriginal"></span>€. Niiden hintaa alennetaan tammialeissa <span id="discount"></span>%. Paljonko on lopullinen hinta alennuksen jälkeen?</p>
-            <ul>
+            <ul class="options">
                 <li>
                     <label><input type="radio" name="q1" value="0"><span id="choice1of1"></span></label>
                 </li>
@@ -45,8 +80,8 @@
             <div class="progress-bar-container">
                 <div class="progress-bar"></div>
             </div>
-            <p>Kitarataiteilija Gerhard Rihmakallo levytti uransa aikana <span id="hits"></span> loistavaa kappaletta. Yhteensä Gerhard levytti <span id="songs"></span> kappaletta. Arvostelijoiden mukaan näistä <span id="neutral"></span> oli ihan OK. Kuinka monen kappaleen voidaan katsoa olleen täyttä kuraa?</p>
-            <ul>
+            <p>Gerhard Rihmakallo levytti <span id="hits"></span> loistavaa kappaletta. Yhteensä Gerhard levytti <span id="songs"></span> kappaletta. Arvostelijoiden mielestä <span id="neutral"></span> oli ihan OK. Kuinka moni kappale oli täten täyttä kuraa?</p>
+            <ul class="options">
                 <li><label>
                     <input type="radio" name="q2" value="0"><span id="choice1of2"></span></label>
                 </li>
@@ -68,7 +103,7 @@
                 <div class="progress-bar"></div>
             </div>
             <p>Jos suunnikkaan korkeus on <span id="length"></span>m ja leveys <span id="width"></span>m, paljonko on suunnikkaan piiri?</p>
-            <ul>
+            <ul class="options">
                 <li>
                     <label><input type="radio" name="q3" value="0"><span id="choice1of3"></span></label>
                 </li>
@@ -90,7 +125,7 @@
                 <div class="progress-bar"></div>
             </div>
             <p>Jos kirja on <span id="booklength"></span> sivua pitkä ja Jörn Donner lukee sitä <span id="pace"></span> sivua päivässä, niin montako päivää Jörnillä menee että on saanut kirjan luettua?</p>
-            <ul>
+            <ul class="options">
                 <li>
                     <label><input type="radio" name="q4" value="0"><span id="choice1of4"></span></label>
                 </li>
@@ -112,7 +147,7 @@
                 <div class="progress-bar"></div>
             </div>
             <p>Pussissa on <span id="red"></span> punaista kuulaa, <span id="blue"></span> sinistä kuulaa ja <span id="green"></span> vihreää kuulaa . Jos pussista nostetaan yksi kuula, millä todennäköisyydellä kuula on vihreä?</p>
-            <ul>
+            <ul class="options">
                 <li>
                     <label><input type="radio" name="q5" value="0"><span id="choice1of5"></span></label>
                 </li>
@@ -135,8 +170,8 @@
                 <p id="resultMessage"></p> <br>
                 <br>
                 <div id="finalButtons">
-                    <button class="finish"><a href="Index.html">Kokeile uudestaan!</a></button>
-                    <button class="finish"><a href="...">Etusivulle</a></button>
+                    <button class="finish"><a href="Matematiikkavisa MVe.html">Kokeile uudestaan!</a></button>
+                    <button class="finish"><a href="../Etusivu/index.html">Etusivulle</a></button>
                 </div> 
             </div>     
         </div>
@@ -144,8 +179,12 @@
         
 	<script src="../Miikan_tyot/js/matematiikkavisa.js"></script>
 
+
+</main> 
+
+
+    <div id="footer">Matematiikkavisa / Miika Venetvaara</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
-
-
-
-
+</html>
