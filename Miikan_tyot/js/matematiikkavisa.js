@@ -131,7 +131,7 @@ function checkAnswer1() {
     totalScore++;
     choices1[correctAnswerIndex1].parentNode.classList.add('correct');
   } else {
-    totalScore += 0;
+    //totalScore += 0;
     answer1.parentNode.classList.add('incorrect');
     choices1[correctAnswerIndex1].parentNode.classList.add('correct');
   }
@@ -192,7 +192,7 @@ function checkAnswer2() {
     totalScore++;
     answer2.parentNode.classList.add('correct');
   } else {
-    totalScore += 0;
+    //totalScore += 0;
     answer2.parentNode.classList.add('incorrect');
     choices2[correctAnswerIndex2].parentNode.classList.add('correct');
   }
@@ -253,7 +253,7 @@ function checkAnswer3() {
     totalScore++;
     choices3[correctAnswerIndex3].parentNode.classList.add('correct');
   } else {
-    totalScore += 0;
+    //totalScore += 0;
     answer3.parentNode.classList.add('incorrect');
     choices3[correctAnswerIndex3].parentNode.classList.add('correct');
   }
@@ -314,7 +314,7 @@ function checkAnswer4() {
     totalScore++;
     choices4[correctAnswerIndex4].parentNode.classList.add('correct');
   } else {
-    totalScore += 0;
+    //totalScore += 0;
     answer4.parentNode.classList.add('incorrect');
     choices4[correctAnswerIndex4].parentNode.classList.add('correct');
   }
@@ -375,7 +375,7 @@ function checkAnswer5() {
     totalScore++;
     choices5[correctAnswerIndex5].parentNode.classList.add('correct');
   } else {
-    totalScore += 0;
+    //totalScore += 0;
     answer5.parentNode.classList.add('incorrect');
     choices5[correctAnswerIndex5].parentNode.classList.add('correct');
   }
@@ -386,18 +386,22 @@ function checkAnswer5() {
   for (let i = 0; i < radioButtons5.length; i++) {
     radioButtons5[i].disabled = true;
   }
+
+
+// Tulostetaan tsemppiviestit käyttäjälle oikeiden vastausten lukumäärän perusteella
+let excellent = '<img src="images/excellent.jpg" style="width: 400px; height: 300px;">';
+let notBad = '<img src="images/notbad.jpg" style="width: 400px; height: 300px;">';
+let seriously = '<img src="images/serious.jpg" style="width: 400px; height: 300px;">';
+
+if (totalScore>=4) {
+  document.getElementById("resultMessage").innerHTML = excellent;
+} else if (totalScore<4 && totalScore>=2) {
+  document.getElementById("resultMessage").innerHTML = notBad;
+} else if (totalScore<2) {
+  document.getElementById("resultMessage").innerHTML = seriously;
 }
+
 
 // Tulostetaan oikeiden vastausten määrä näkyviin
 document.getElementById("total").innerHTML = totalScore;
-
-if (totalScore >= 4) {
-  document.getElementById("resultImg").innerHTML = "kuva tahan";
-  document.getElementById("resultMessage").innerHTML = "Loistavaa!";
-} else if (totalScore < 4 && totalScore >= 2) {
-  document.getElementById("resultImg").innerHTML = "kuva tahan";
-  document.getElementById("resultMessage").innerHTML = "Hienoa, kokeile vielä saatko parannettua tulosta!";
-} else if (totalScore < 2) {
-  document.getElementById("resultImg").innerHTML = "kuva tahan";
-  document.getElementById("resultMessage").innerHTML = "Kokeilehan uudestaan!";
 }

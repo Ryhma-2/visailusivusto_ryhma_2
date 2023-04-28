@@ -17,6 +17,12 @@
     <div id="quiz">
 
         <div class="active question">
+        <h1>Matematiikkavisa</h1>
+        <button id="next" class="start">Aloita</button>
+        </div>
+
+
+        <div class="question">
             <p>Kengät maksavat Seppälässä <span id="priceOriginal"></span>€. Niiden hintaa alennetaan tammialeissa <span id="discount"></span>%. Paljonko on lopullinen hinta alennuksen jälkeen?</p>
             <ul>
                 <li>
@@ -31,8 +37,8 @@
                 <li>
                     <label><input type="radio" name="q1" value="3"><span id="choice4of1"></span></label>
                 </li>
-            </ul>
-            <button id="next1" class="hidden">Seuraava</button>
+                <button id="next1" class="hidden">Seuraava</button>
+            </ul> 
         </div>
 
         <div class="question">
@@ -53,8 +59,8 @@
                 <li>
                     <label><input type="radio" name="q2" value="3"><span id="choice4of2"></span></label>
                 </li>
-            </ul>
-            <button id="next2" class="hidden">Seuraava</button>
+                <button id="next2" class="hidden">Seuraava</button>
+            </ul> 
         </div>
 
         <div class="question">
@@ -75,8 +81,8 @@
                 <li>
                     <label><input type="radio" name="q3" value="3"><span id="choice4of3"></span></label>
                 </li>
+                <button id="next3" class="hidden">Seuraava</button>
             </ul>
-            <button id="next3" class="hidden">Seuraava</button>
         </div>
 
         <div class="question">
@@ -97,8 +103,8 @@
                 <li>
                     <label><input type="radio" name="q4" value="3"><span id="choice4of4"></span></label>
                 </li>
+                <button id="next4" class="hidden">Seuraava</button>
             </ul>
-            <button id="next4" class="hidden">Seuraava</button>
         </div>
 
         <div class="question">
@@ -119,19 +125,20 @@
                 <li>
                     <label><input type="radio" name="q5" value="3"><span id="choice4of5"></span></label>
                 </li>
+                <button id="next5" class="hidden">Lopeta visa</button>
             </ul>
-            <button id="next5" class="hidden">Lopeta visa</button>
         </div>
 
         <div class="question">
-            <h2>Tulokset</h2>
-            <p>Sait oikein <span id="total"></span>/5</p>
-            <p id="resultImg">&nbsp;</p> <br>
-            <p id="resultMessage"></p> <br>
-            <br>
-            <button class="finish"><a href="Index.html">Kokeile uudestaan!</button>
-            <button class="finish"><a heref="...">Etusivulle</a></button>        
+            <div class="results">
+                <p>Sait oikein <br> <span id="total"></span>/5</p>
+                <p id="resultMessage"></p> <br>
+                <br>
+                <button class="finish"><a href="Index.html">Kokeile uudestaan!</a></button>
+                <button class="finish"><a href="...">Etusivulle</a></button> 
+            </div>     
         </div>
+    </div>
         
 	<script src="../Miikan_tyot/js/matematiikkavisa.js"></script>
 
