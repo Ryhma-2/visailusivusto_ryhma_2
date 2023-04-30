@@ -389,9 +389,10 @@ function checkAnswer5() {
 
 
 // Tulostetaan tsemppiviestit käyttäjälle oikeiden vastausten lukumäärän perusteella
-let excellent = '<img src="images/excellent.jpg" style="width: 400px; height: 300px;">';
-let notBad = '<img src="images/notbad.jpg" style="width: 400px; height: 300px;">';
-let seriously = '<img src="images/serious.jpg" style="width: 400px; height: 300px;">';
+let excellent = '<div><img src="images/excellent.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: http://www.quickmeme.com/meme/36ghko</p></div>';
+let notBad = '<div><img src="images/notbad.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: https://www.bbc.com/news/technology-20237531</p></div>';
+let seriously = '<div><img src="images/serious.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: https://knowyourmeme.com/memes/are-you-serious-face-seriously</p></div>';
+
 
 if (totalScore>=4) {
   document.getElementById("resultMessage").innerHTML = excellent;
