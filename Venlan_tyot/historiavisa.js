@@ -31,11 +31,14 @@ resultsButton.style.display ="none";
 
   //function that counts how many questions are answered and tells how many questions there are overall
   function updateProgress(totalQuestions, answeredQuestions) {
+	
 
 	var totalQuestions = document.getElementsByClassName("container").length;
   var answeredQuestions = document.querySelectorAll(".container input[type='radio']:checked").length;
 	var progressText = "Kysymys " + (answeredQuestions + 1) + "/" + totalQuestions;
 	document.getElementById("quizProgress").innerHTML = progressText;
+
+
 
   }
 
@@ -59,6 +62,7 @@ function startQuiz() {
 	var answeredQuestions = document.querySelectorAll(".container input[type='radio']:checked").length;
 	
 	// Call updateProgress with the new values
+	document.getElementById("quizProgress").style.display = "block";
 	updateProgress(totalQuestions, answeredQuestions);
 
 }
@@ -140,10 +144,13 @@ function nextQuestion5() {
 function checkAnswer1() {
 
 	if (document.getElementById('correct1').value == "true" && document.getElementById("correct1").checked) {
-		document.getElementById("correctAnswers1").innerHTML = "Oikea vastaus";
+		document.getElementById("correctAnswers1").innerHTML = "Oikea vastaus!";
+		document.getElementById("correctAnswers1").style.color = "green";
 
 	} else {
 		document.getElementById("correctAnswers1").innerHTML = "Väärä vastaus. Oikea vastaus on B. vaihtoehto";
+		document.getElementById("correctAnswers1").style.color = "red";
+
 	}
 
 	//disabling the radio buttons after pressing the checkAnswer button
@@ -159,9 +166,11 @@ function checkAnswer1() {
   function checkAnswer2() {
 
 	if (document.getElementById('correct2').value == "true" && document.getElementById("correct2").checked) {
-		document.getElementById("correctAnswers2").innerHTML = "Oikea vastaus";
+		document.getElementById("correctAnswers2").innerHTML = "Oikea vastaus!";
+		document.getElementById("correctAnswers2").style.color = "green";
 	} else {
 		document.getElementById("correctAnswers2").innerHTML = "Väärä vastaus. Oikea vastaus on D. vaihtoehto";
+		document.getElementById("correctAnswers2").style.color = "red";
 	}
 	
 	//disabling the radio buttons after pressing the checkAnswer button
@@ -177,9 +186,11 @@ function checkAnswer1() {
   function checkAnswer3() {
 
 	if (document.getElementById('correct3').value == "true" && document.getElementById("correct3").checked) {
-		document.getElementById("correctAnswers3").innerHTML = "Oikea vastaus";
+		document.getElementById("correctAnswers3").innerHTML = "Oikea vastaus!";
+		document.getElementById("correctAnswers3").style.color = "green";
 	} else {
 		document.getElementById("correctAnswers3").innerHTML = "Väärä vastaus. Oikea vastaus on C. vaihtoehto";
+		document.getElementById("correctAnswers3").style.color = "red";
 	}
 	
 	//disabling the radio buttons after pressing the checkAnswer button
@@ -195,9 +206,11 @@ function checkAnswer1() {
   function checkAnswer4() {
 
 	if (document.getElementById('correct4').value == "true" && document.getElementById("correct4").checked) {
-		document.getElementById("correctAnswers4").innerHTML = "Oikea vastaus";
+		document.getElementById("correctAnswers4").innerHTML = "Oikea vastaus!";
+		document.getElementById("correctAnswers4").style.color = "green";
 	} else {
 		document.getElementById("correctAnswers4").innerHTML = "Väärä vastaus. Oikea vastaus on B. vaihtoehto";
+		document.getElementById("correctAnswers4").style.color = "red";
 	}
 	
 	//disabling the radio buttons after pressing the checkAnswer button
@@ -213,9 +226,11 @@ function checkAnswer1() {
   function checkAnswer5() {
 
 	if (document.getElementById('correct5').value == "true" && document.getElementById("correct5").checked) {
-		document.getElementById("correctAnswers5").innerHTML = "Oikea vastaus";
+		document.getElementById("correctAnswers5").innerHTML = "Oikea vastaus!";
+		document.getElementById("correctAnswers5").style.color = "green";
 	} else {
 		document.getElementById("correctAnswers5").innerHTML = "Väärä vastaus. Oikea vastaus on D. vaihtoehto";
+		document.getElementById("correctAnswers5").style.color = "red";
 	}
 	
 	//disabling the radio buttons after pressing the checkAnswer button
@@ -251,7 +266,7 @@ function results() {
 	if (document.getElementById('correct3').value == "true" && document.getElementById("correct3").checked) {
 	  score += 1;
 	} else {
-	  feedback += "Väärä vastaus kysymykseen 3. Ennen kristinuskon saapumimsta Suomeen suomalaiset harjoittivat erilaisia uskonnollisia tapoja ja uskomuksia. Suomalainen muinaisusko oli varhaiskantaista, monijumalaista luonnonuskoa ja vainajien palvontaa. <br>";
+	  feedback += "Väärä vastaus kysymykseen 3. Ennen kristinuskon saapumista Suomeen suomalaiset harjoittivat erilaisia uskonnollisia tapoja ja uskomuksia. Suomalainen muinaisusko oli varhaiskantaista, monijumalaista luonnonuskoa ja vainajien palvontaa. <br>";
 	}
 	
 	if (document.getElementById('correct4').value == "true" && document.getElementById("correct4").checked) {
@@ -276,14 +291,17 @@ function results() {
 	quizContainer5.style.display="none";
 	quizProgress.style.display="none";
 	resetButton.style.display ="block";
+	document.getElementById("feedback").style.display = "block";
 
+	if (score == 5) {
+		document.getElementById("feedback").style.display = "none";
+	}
   }
   
 	
   function resetQuiz() {
 
-	var answeredQuestions = 0;
-	var totalQuestions = 5;
+	
 
 	let feedback = "";
 	document.getElementById("feedback").innerHTML = "";
@@ -293,6 +311,12 @@ function results() {
 	document.getElementById("correctAnswers3").innerHTML = "";
 	document.getElementById("correctAnswers4").innerHTML = "";
 	document.getElementById("correctAnswers5").innerHTML = "";
+
+	q1Button.style.display = "none";
+	q2Button.style.display = "none";
+	q3Button.style.display = "none";
+	q4Button.style.display = "none";
+	resultsButton.style.display ="none";
   
 	// Reset all radio buttons to unchecked state
 	var radioButtons = document.querySelectorAll("input[type='radio']");
@@ -322,16 +346,15 @@ function results() {
 	});
 
 
-		// Reset progress text
-		document.getElementById("quizProgress").innerHTML = "";
-		var progressText = "Kysymys " + (answeredQuestions + 1) + "/" + totalQuestions;
-		console.log("progressText:", progressText);
-		document.getElementById("quizProgress").innerHTML = progressText;
+	 // Reset progress text
+	 
+	 var totalQuestions = document.getElementsByClassName("container").length;
+	 var answeredQuestions = 0;
+	 updateProgress(totalQuestions, answeredQuestions);
 		
 		
-  
+	document.getElementById("feedback").style.display = "none";
 	resetButton.style.display = "none";
-	updateProgress(totalQuestions, answeredQuestions);
-  
   }
+  
   
