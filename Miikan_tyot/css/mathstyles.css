@@ -1,3 +1,313 @@
 .question:not(.active) {
-    display: none;
+  display: none;
+}
+
+h1 {
+  font-family: fantasy;
+  font-size: 70px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+button.start:not(.hidden) {
+  margin-top: 50px;
+  width: 200px;
+  height: 100px;
+  background-color: #0d6efd;
+}
+
+header {
+  font-family: fantasy;
+}
+
+/*Näillä voi muokata navbarin värejä
+.navbar.bg-dark {
+  background-color: #0d6efd !important;
+}
+
+.navbar-expand-lg.bg-body-tertiary {
+  background-color: #17a6fc !important;
+}*/
+
+.source {
+  font-size: 10px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-align: center !important;
+}
+
+
+.start:hover {
+  cursor: pointer;
+  border-style: groove;
+  border-color: black;
+  border-radius: 5px;
+}
+
+
+[id^="next"]:not(.hidden) {
+  display: block;
+  justify-content: center;
+  text-decoration: none;
+  height: 30px;
+  background-color: #68d3fc;
+  border-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 35em;
+  height: 60px;
+  grid-column: 1 / -1; 
+  border-radius: 5px;
+}
+
+[id^="next"]:hover {
+  cursor: pointer;
+  border-style: groove;
+  border-color: black;
+  border-radius: 5px;
+  background-color: #0d6efd;
+}
+
+[class^="options"] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(2, auto);
+  gap: 10px; 
+  width: 60%;
+  /*height: 320px;*/
+  height: 30%;
+  margin: 0 auto;
+  grid-auto-rows: minmax(0, max-content);
+}
+
+.options li {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background-color: #17a6fc;
+}
+
+.options li:hover {
+  background-color: #0d6efd;
+  cursor: pointer;
+}
+
+/* Piilotetaan radio-pisteet*/
+input[type="radio"] {
+  display: none;
+}
+
+/* Muotoillaan labelit laatikoiksi*/
+input[type="radio"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* TURHA??
+input[type="radio"]:checked + label:before {
+  content: "✓";
+  font-size: 16px;
+  line-height: 20px; 
+} */
+
+/* Label ja radio-button täyttää koko divin, eli koko laatikko toimii nappulana*/
+li label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: fantasy;
+  font-size: 4em;
+  color: white;
+  cursor: pointer;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-family: fantasy;
+  font-size: 2em;
+  text-align: center;
+}
+
+.correct {
+  background-color: limegreen;
+  color: white;
+}
+
+.incorrect {
+  background-color: #FC3643;
+  color: white;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #17a6fc;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Jostain syystä tämä toimii oikein silloin, kun jokaisen kysymyksen sisällä on progress-bar ja sitten se on piilotettu täällä*/
+#quiz .progress-bar-container {
+  display: none;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: fantasy;
+  margin-top: 2em;
+}
+
+.finish {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  margin: 5px;
+  font-family: fantasy;
+  height: 50px;
+  /*width: 100px;*/
+  width: 6em;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.finish:hover {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.finish a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+.results p {
+  font-family: fantasy;
+  font-size: 1.5em;
+}
+
+#footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(39, 38, 38);
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  
+  h1 {
+    text-align: center;
   }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+  }
+
+  [class^="options"] {
+    display: block;
+    gap: 10px; 
+    width: 70%;
+    height: 30%;
+    grid-auto-rows: minmax(0, max-content);
+    margin: 0px;
+  }
+  
+  .options li {
+    display: block; 
+    align-items: center; 
+    margin-top: 20px;
+    height: 60px;
+  }
+
+  li label {
+    font-size: 2em;
+  }
+
+  [id^="next"]:not(.hidden) {
+    margin-top: 40px;
+    width: 70%;
+    height: 2em; 
+    background-color: #0d6efd;
+  }
+
+}
+
+@media only screen and (max-width: 576px) {
+
+  body {
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  [class^="options"] {
+    display: block;
+    justify-content: center;
+    gap: 10px; 
+    width: 70%;
+    height: 100px;
+    grid-auto-rows: minmax(0, max-content);
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  [id^="finalB"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+}

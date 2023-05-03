@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Nunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.1.1" media="all">
+    <link rel="stylesheet" href="./styles/etusivu.css">
 </head>
 <body>
 
@@ -15,14 +16,14 @@
     <nav class="navbar bg-dark" data-bs-theme="dark">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Tervetuloa</a>
+          <a class="navbar-brand" href="#">Visasivusto</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Etusivu</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Tietoja</a>
@@ -33,6 +34,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Matematiikka-visa</a></li>
+                  <li><a class="dropdown-item" href="#">Kertotaulu-visa</a></li>
                   <li><a class="dropdown-item" href="#">Musiikki-visa</a></li>
                   <li><a class="dropdown-item" href="#">Historia-visa</a></li>
                 </ul>
@@ -45,52 +47,50 @@
 
   <main class="container">
     <div class="row">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Optio, et quibusdam deleniti facere, cupiditate illum illo assumenda quis, 
-            itaque velit quisquam dolorem in soluta animi vel porro quia harum quo?
+      <div class="col-5 my-5">
+        <p>Valitse yksi alla olevista visoista ja opi!
         </p>
       </div>
 
-
+      
       <div class="row">
 
         <div class="col-sm-3">
         <div class="card card-block">
-          <img class="card-img-top" src="./pic/math.jpg" alt="...">
+          <img class="card-img-top" src="./etusivu/pic/math.jpg" alt="...">
           <div class="card-block">
             <h4 class="card-title">Matematiikka-visa</h4>
-            <a class="btn btn-outline-primary" href="../Miikan_tyot/Matematiikkavisa MVe.html" role="button">Testaa tietämyksesi!</a>
+            <a class="btn btn-outline-primary" href="#" role="button">Testaa tietämyksesi!</a>
           </div>
           </div>
         </div>
 
         <div class="col-sm-3">
+          <div class="card card-block">
+            <img class="card-img-top" src="./etusivu/pic/butterfly.jpg" alt="...">
+            <div class="card-block">
+              <h4 class="card-title">Kertotaulu-visa</h4>
+              <a class="btn btn-outline-success" href="#" role="button">Testaa tietämyksesi!</a>
+            </div>
+            </div>
+          </div>
+        
+        <div class="col-sm-3">
         <div class="card card-block">
-          <img class="card-img-top" src="./pic/music.jpg" alt="...">
+          <img class="card-img-top" src="./etusivu/pic/music.jpg" alt="...">
           <div class="card-block">
             <h4 class="card-title">Musiikki-visa</h4>
             <a class="btn btn-outline-danger" href="#" role="button">Testaa tietämyksesi!</a>
           </div>
         </div>
       </div>
-
+        
         <div class="col-sm-3">
         <div class="card card-block">
-          <img class="card-img-top" src="./pic/books.jpg" alt="...">
+          <img class="card-img-top" src="./etusivu/pic/books.jpg" alt="...">
           <div class="card-block">
             <h4 class="card-title">Historia-visa</h4>
             <a class="btn btn-outline-secondary" href="#" role="button">Testaa tietämyksesi!</a>
-          </div>
-          </div>
-        </div>
-
-
-          <div class="col-sm-3">
-        <div class="card card-block">
-          <img class="card-img-top" src="./pic/butterfly.jpg" alt="...">
-          <div class="card-block">
-            <h4 class="card-title">Neljäs visa</h4>
-            <a class="btn btn-outline-success" href="#" role="button">Testaa tietämyksesi!</a>
           </div>
           </div>
         </div>
@@ -98,8 +98,8 @@
 </main> 
 
 
-    <div id="footer">Footer</div>
-
+    <div id="footer">Made by: Ryhmä 2 @ kevät 2023</div>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
