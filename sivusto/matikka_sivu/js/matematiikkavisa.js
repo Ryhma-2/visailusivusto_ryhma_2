@@ -389,9 +389,10 @@ function checkAnswer5() {
 
 
 // Tulostetaan tsemppiviestit käyttäjälle oikeiden vastausten lukumäärän perusteella
-let excellent = '<div><img src="./matikka_sivu/images/excellent.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: http://www.quickmeme.com/meme/36ghko</p></div>';
-let notBad = '<div><img src="./matikka_sivu/images/notbad.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: https://www.bbc.com/news/technology-20237531</p></div>';
-let seriously = '<div><img src="./matikka_sivu/images/serious.jpg" style="width: 400px; height: 300px;"><p class = "source">img source: https://knowyourmeme.com/memes/are-you-serious-face-seriously</p></div>';
+let excellent   = '<div><img src="matikka_sivu/Images/excellent.jpg" style="width: 400px; height: 300px;"><p class="source">img source: http://www.quickmeme.com/meme/36ghko</p></div>';
+let notBad      = '<div><img src="matikka_sivu/Images/notbad.jpg" style="width: 400px; height: 300px;"><p class="source">img source: https://www.bbc.com/news/technology-20237531</p></div>';
+let seriously   = '<div><img src="matikka_sivu/Images/serious.jpg" style="width: 400px; height: 300px;"><p class="source">img source: https://knowyourmeme.com/memes/are-you-serious-face-seriously</p></div>';
+
 
 
 if (totalScore>=4) {
