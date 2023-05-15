@@ -2,15 +2,15 @@
 // Kysymykset ja vastaukset
 let questionArray = [
     {
-        q: "Mikä maa on saanut eniten Euroviisu voittoja vuoteen 2023 mennessä?",
+        q: "Mikä maa voitti Euroviisut vuonna 2023?",
         a: [
-            { text: "Ruotsi", isCorrect: false },
+            { text: "Irlanti", isCorrect: false },
             { text: "Iso-Britannia", isCorrect: false },
-            { text: "Irlanti", isCorrect: true },
+            { text: "Ruotsi", isCorrect: true },
             { text: "Ranska", isCorrect: false }
 
         ],
-        rightanswer: "<br><br>Irlanti on voittanut Euroviisut 7 kertaa vuoteen 2023 mennessä.<br>Ruotsi on voittanut 6 kertaa ja Ranska sekä Iso-Britannia 5 kertaa."
+        rightanswer: "<br><br>Ruotsi voitti 2023 vuoden Euroviisut."
     },
     {
         q: "Minkä yhtyeen kappaleiden pohjalta on tehty elokuva 'Mamma Mia!?",
