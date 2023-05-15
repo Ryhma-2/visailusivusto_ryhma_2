@@ -48,3 +48,27 @@ h1 {
 nav.navbar.navbar-expand-lg.bg-body-tertiary {
     width: 100%;
 }
+
+h4 {
+    margin-top: 1em;
+    margin-left: 1em;
+    color: white;
+}
+
+h5 {
+    margin-top: 3em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+td {
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+.tekijat {
+    margin-left: 2em;
+    padding: 2em;
+    color: white;
+}
