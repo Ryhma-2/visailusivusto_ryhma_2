@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: rgb(39, 38, 38);
   color: #000;
   font-family: Arial, sans-serif;
   font-size: 18px;
@@ -97,6 +97,7 @@ color: #000000;
 margin-top: 30px;
 margin-bottom: 50px;
 text-align: center;
+color: black;
 }
 
 .results {
