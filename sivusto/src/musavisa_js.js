@@ -41,7 +41,7 @@ let questionArray = [
             { text: "Ksylofoni", isCorrect: true }
 
         ],
-        rightanswer: "<br><br>Haitari, flyygeli ja piano ovat kosketinsoittimia.<br>Ksylofoni on lyömäsoitin."
+        rightanswer: "<br><br>Haitari, flyygeli ja piano luokitellaan kosketinsoittimiksi.<br>Ksylofoni on lyömäsoitin."
     },
     {
         q: "Miten jatkuu 'Meksikon Pikajuna'-laulun sanat: 'Pikajuna Meksikon, halki kiitää yö jo on. Valokeilat _______ rataa kiiltävää.",
@@ -52,19 +52,19 @@ let questionArray = [
             { text: "Ei mikään näistä", isCorrect: false }
 
         ],
-        rightanswer: "<br><br>Reino Helismaan säveltämässä kappaleessa lauletaan: 'valokeilat lakaisevat rataa kiiltävää'."
+        rightanswer: "<br><br>Reino Helismaan säveltämässä kappaleessa lauletaan: 'Valokeilat lakaisevat rataa kiiltävää'."
 
     }
 
 ];
 
-//Määritellään elementtejä
+// Määritellään elementtejä html koodista
 let questions = document.getElementById("question");
 let answerBtns = document.getElementById("answer-buttons");
 let nextBtn = document.getElementById("next-button");
 let info = document.getElementById("info");
 
-//Määritetään kysymys-array ja pisteiden laskun alkavan nollasta, kun visa aloitetaan
+// Määritetään kysymys-array ja pisteiden laskun alkavan nollasta, kun visa aloitetaan
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -77,24 +77,32 @@ function startQuiz() {
 
 function displayQuestion() {
     resetState();
+
+    // Luodaan muuttuja, johon tallennetaan nykyinen kysymys
     let currentQuestion = questionArray[currentQuestionIndex];
+
+    // Luodaan muuttuja, johon tallennetaan kysymyksen numero ja numero sekä kysymys päivittyy visan edetessä
     let questionNum = currentQuestionIndex + 1;
     questions.innerHTML = questionNum + ". " + currentQuestion.q;
 
+    // Vastaukset laitetaan loopin läpi ja muokataan vastausvaihtoehdot kysymyksen mukaan
     currentQuestion.a.forEach(answer => {
         let button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerBtns.appendChild(button);
+
         if (answer.isCorrect) {
             button.dataset.correct = answer.isCorrect;
         }
+
+        // Kutsutaan selectAnswer funktio
         button.addEventListener("click", selectAnswer)
 
     });
 }
 
-
+// Tyhjennetään oikeat vastaukset-kenttä ja piilotetaan "seuraava"-nappi uuteen kysymykseen siirryttäessä
 function resetState() {
     nextBtn.style.display = "none";
     info.style.display = "none";
@@ -104,8 +112,12 @@ function resetState() {
 }
 
 function selectAnswer(e) {
+
+    // Määritellään valittu vastausnappi
     let selectBtn = e.target;
     let isCorrect = selectBtn.dataset.correct === "true";
+
+    // Tarkistetaan onko valittu vastaus oikein ja tulostetaan "Oikein" tai "Väärin" sekä oikea vastaus
     if (isCorrect) {
         selectBtn.classList.add("correct");
         score++;
@@ -114,25 +126,27 @@ function selectAnswer(e) {
         selectBtn.classList.add("incorrect");
         info.innerHTML = "Väärin! " + questionArray[currentQuestionIndex].rightanswer;
     }
-    Array.from(answerBtns.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    })
-    nextBtn.style.display = "block";
 
+    nextBtn.style.display = "block";
     info.style.display = "block";
 }
 
 function showScore() {
+    // Tyhjätään aikaisempi teksti sivulta kutsumalla resetState funktio
     resetState();
+
+    //Visan tulokset
     questions.innerHTML = "Sait " + score + "/" + questionArray.length + " vastausta oikein";
+
+    //Muokataan "seuraava"-napin tekstiä
     nextBtn.innerHTML = "Tee testi uudestaan";
+
     nextBtn.style.display = "block";
 }
 
 function handleNextButton() {
+
+    // Jos kysymyksiä on vielä jäljellä, näytetään seuraava kysymys. Muuten näytetään tulos
     currentQuestionIndex++;
     if (currentQuestionIndex < questionArray.length) {
         displayQuestion();
@@ -141,6 +155,7 @@ function handleNextButton() {
     }
 }
 
+// Kun visa on suoritettu loppuun, "seuraava"-nappi vie takaisin testin alkuun uudelleen pelattavaksi
 nextBtn.addEventListener("click", () => {
     if (currentQuestionIndex < questionArray.length) {
         handleNextButton();
@@ -151,5 +166,5 @@ nextBtn.addEventListener("click", () => {
 
 });
 
+// Funktio jolla visa alkaa
 startQuiz();
-
