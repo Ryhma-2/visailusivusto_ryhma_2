@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: rgb(39, 38, 38);
     color: rgb(255, 255, 255);
 }
 
@@ -10,37 +10,37 @@ body {
     justify-content: center;
     font-weight: 700;
     padding-top: 3px;
-  }
-  
-  .btn {
+}
+
+.btn {
     display: flex;
     justify-content: center;
-  }
-  
-  .col-5.my-5 {
+}
+
+.col-5.my-5 {
     width: 100%;
     display: flex;
     justify-content: center;
     font-weight: 700;
     font-size: 3em;
     color: #fff;
-  }
-  
-  .navbar-brand {
-    font-weight:900;
-  }
-  
-  nav.navbar.navbar-expand-lg.bg-body-tertiary {
+}
+
+.navbar-brand {
+    font-weight: 900;
+}
+
+nav.navbar.navbar-expand-lg.bg-body-tertiary {
     width: 100%;
-  }
-  
-  .question:not(.active) {
+}
+
+.question:not(.active) {
     display: none;
-  }
+}
 
 header {
     font-family: 'Nunito', sans-serif;
-  }
+}
 
 .quiz {
     width: 90%;
